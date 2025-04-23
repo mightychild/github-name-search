@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# GitHub User Search Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![GitHub User Search Demo](demo.gif) *[Note: Add demo GIF here]*
 
-## Available Scripts
+A responsive React application for searching and viewing GitHub user profiles using the GitHub API.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Search GitHub users by username
+- Display user profile with avatar, bio, and stats
+- Responsive design for all screen sizes
+- Loading states and error handling
+- Modern UI with animations and transitions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Thought Process & Design Decisions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Architecture
+- **Component-based structure**: Organized UI into reusable components (SearchForm, UserProfile, etc.)
+- **Hooks-based implementation**: Used useState for state management and useEffect for side effects
+- **Separation of concerns**: Clear division between presentation and logic components
 
-### `npm test`
+### UI/UX Considerations
+- **Mobile-first approach**: Designed for small screens first, then enhanced for larger displays
+- **Visual feedback**: Loading spinner, error messages, and hover effects
+- **Accessibility**: Semantic HTML, proper contrast ratios, and keyboard navigation support
+- **GitHub-inspired design**: Used GitHub's color palette for familiarity
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Technical Choices
+- **React Icons**: For consistent, scalable vector icons
+- **CSS Variables**: For maintainable theming and easy style adjustments
+- **Modern CSS**: Flexbox, transitions, and animations for smooth interactions
+- **Error handling**: Specific messages for different error cases (404 vs network errors)
 
-### `npm run build`
+## Setup Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mightychild/github-name-search.git
+   cd github-name-search
