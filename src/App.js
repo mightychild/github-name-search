@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import UserProfile from './components/UserProfile';
 import SearchForm from './components/SearchForm';
+import SearchHistory from './components/SearchHistory';
+import RepositoryList from './components/RepositoryList';
+import ThemeToggle from './components/ThemeToggle';
 import LoadingSpinner from './components/LoadingSpinner';
 import ErrorMessage from './components/ErrorMessage';
+import { useLocalStorage } from './hooks/useLocalStorage';
+import { useDarkMode } from './hooks/useDarkMode';
 import './App.css';
+import './theme.css';
 
 function App() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [searchHistory, setSearchHistory] = useLocalStorage('searchHistory', []);
+  const [darkMode, setDarkMode] = useDarkMode();
 
   const fetchUserData = async (username) => {
     setLoading(true);
@@ -20,6 +28,9 @@ function App() {
       }
       const data = await response.json();
       setUserData(data);
+      setSearchHistory(prev => 
+        [username, ...prev.filter(item => item !== username)].slice(0, 5)
+      );
     } catch (err) {
       setError(err.message);
       setUserData(null);
@@ -28,20 +39,40 @@ function App() {
     }
   };
 
+  const toggleDarkMode = () => setDarkMode(!darkMode);
+
   return (
-    <div className="app-container">
+    <div className={`app-container ${darkMode ? 'dark-mode' : ''}`}>
       <header className="app-header">
-        <h1 className="app-title">GitHub Profile Finder</h1>
-        <p className="app-subtitle">Search for any GitHub user by their username</p>
+        <div className="header-content">
+          <div>
+            <h1 className="app-title">GitHub Profile Finder</h1>
+            <p className="app-subtitle">Search for any GitHub user by their username</p>
+          </div>
+          <ThemeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        </div>
       </header>
       
       <main className="app-content">
-        <SearchForm onSearch={fetchUserData} loading={loading} />
+        <div className="search-section">
+          <SearchForm onSearch={fetchUserData} loading={loading} />
+          {searchHistory.length > 0 && (
+            <SearchHistory 
+              searches={searchHistory} 
+              onSearch={fetchUserData} 
+            />
+          )}
+        </div>
         
         <div className="results-container">
           {loading && <LoadingSpinner />}
           {error && <ErrorMessage message={error} />}
-          {userData && <UserProfile user={userData} />}
+          {userData && (
+            <div className="profile-section">
+              <UserProfile user={userData} />
+              <RepositoryList username={userData.login} />
+            </div>
+          )}
         </div>
       </main>
       
