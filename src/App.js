@@ -7,7 +7,7 @@ import ThemeToggle from './components/ThemeToggle';
 import LoadingSpinner from './components/LoadingSpinner';
 import ErrorMessage from './components/ErrorMessage';
 import { useLocalStorage } from './hooks/useLocalStorage';
-import { useDarkMode } from './hooks/useDarkMode'
+import { useDarkMode } from './hooks/useDarkMode';
 import './App.css';
 import './theme.css';
 
