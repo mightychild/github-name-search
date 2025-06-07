@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import UserProfile from './components/UserProfile';
 import SearchForm from './components/SearchForm';
 import SearchHistory from './components/SearchHistory';
