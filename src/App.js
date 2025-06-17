@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserProfile from './components/UserProfile'
+import UserProfile from './components/UserProfile';
 import SearchForm from './components/SearchForm';
 import SearchHistory from './components/SearchHistory';
 import RepositoryList from './components/RepositoryList';
