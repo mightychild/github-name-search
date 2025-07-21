@@ -1,4 +1,4 @@
-# GitHub User Search Application
+# GitHub User Search Applicatio
 
 
 A responsive React application for searching and viewing GitHub user profiles using the GitHub API.
